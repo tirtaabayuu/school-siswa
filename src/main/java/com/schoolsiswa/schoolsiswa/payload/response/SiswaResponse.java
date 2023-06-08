@@ -9,11 +9,7 @@ public class SiswaResponse {
 
     private Long id;
 
-    private String nis;
-
     private String name;
 
-    private String major;
 
-    private String university;
 }

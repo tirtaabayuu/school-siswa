@@ -12,16 +12,10 @@ import lombok.Setter;
 @AllArgsConstructor
 public class SiswaRequest {
 
-    @NotBlank(message = "nis can't be empty")
-    private String nis;
 
     @NotBlank(message = "name can't be empty")
     private String name;
 
-    @NotBlank(message = "major can't be empty")
-    private String major;
 
-    @NotBlank(message = "university can't be empty")
-    private String university;
 
 }

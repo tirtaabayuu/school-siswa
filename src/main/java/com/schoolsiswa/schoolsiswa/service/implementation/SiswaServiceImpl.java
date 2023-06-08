@@ -32,17 +32,12 @@ public class SiswaServiceImpl implements SiswaService {
 
         SiswaEntity siswaEntity = new SiswaEntity();
         siswaEntity.setName(siswaRequest.getName());
-        siswaEntity.setNis(siswaRequest.getNis());
-        siswaEntity.setMajor(siswaRequest.getMajor());
-        siswaEntity.setUniversity(siswaRequest.getUniversity());
 
         siswaRepository.save(siswaEntity);
 
         SiswaResponse siswaResponse = new SiswaResponse();
         siswaResponse.setName(siswaEntity.getName());
-        siswaResponse.setNis(siswaEntity.getNis());
-        siswaResponse.setMajor(siswaEntity.getMajor());
-        siswaResponse.setUniversity(siswaEntity.getUniversity());
+
 
         LOG.info("Successfully save new siswa to the database");
         return siswaResponse;
@@ -57,9 +52,7 @@ public class SiswaServiceImpl implements SiswaService {
 
         siswaResponse.setId(siswaEntity.getId());
         siswaResponse.setName(siswaEntity.getName());
-        siswaResponse.setNis(siswaEntity.getNis());
-        siswaResponse.setMajor(siswaEntity.getMajor());
-        siswaResponse.setUniversity(siswaEntity.getUniversity());
+
 
         LOG.info("Successfully get siswa by Id");
         return siswaResponse;
@@ -75,9 +68,7 @@ public class SiswaServiceImpl implements SiswaService {
 
             siswaResponse.setId(siswa.getId());
             siswaResponse.setName(siswa.getName());
-            siswaResponse.setNis(siswa.getNis());
-            siswaResponse.setMajor(siswa.getMajor());
-            siswaResponse.setUniversity(siswa.getUniversity());
+
 
             siswaResponses.add(siswaResponse);
 
@@ -116,18 +107,14 @@ public class SiswaServiceImpl implements SiswaService {
                 .orElseThrow(()-> new DataNotFoundException("Data Not Found"));
 
         siswaEntity.setName(siswaUpdateRequest.getName());
-        siswaEntity.setNis(siswaUpdateRequest.getNis());
-        siswaEntity.setMajor(siswaUpdateRequest.getMajor());
-        siswaEntity.setUniversity(siswaUpdateRequest.getUniversity());
+
 
         siswaRepository.save(siswaEntity);
 
         SiswaResponse siswaResponse = new SiswaResponse();
         siswaResponse.setId(siswaEntity.getId());
         siswaResponse.setName(siswaEntity.getName());
-        siswaResponse.setNis(siswaEntity.getNis());
-        siswaResponse.setMajor(siswaEntity.getMajor());
-        siswaResponse.setUniversity(siswaEntity.getUniversity());
+
 
         LOG.info("Successfully update news data siswa to the database");
 

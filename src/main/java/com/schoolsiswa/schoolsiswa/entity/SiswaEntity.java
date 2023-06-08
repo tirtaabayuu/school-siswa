@@ -13,7 +13,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "siswa")
+@Table(name = "tbl_siswa")
+
 public class SiswaEntity {
 
     @Id
@@ -21,18 +22,6 @@ public class SiswaEntity {
     private Long id;
 
     @NotBlank
-    private String nis;
-
-    @NotBlank
-//    @Column (name ="name", nullable = false)
     private String name;
-
-    @NotBlank
-//    @Column (name = "major", nullable = false)
-    private String major;
-
-    @NotBlank
-    @Column (columnDefinition = "TEXT")
-    private String university;
 
 }
