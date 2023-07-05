@@ -31,12 +31,14 @@ public class SiswaServiceImpl implements SiswaService {
         LOG.info("Save new siswa to database");
 
         SiswaEntity siswaEntity = new SiswaEntity();
+        siswaEntity.setNis(siswaRequest.getNis());
         siswaEntity.setName(siswaRequest.getName());
 
-        siswaRepository.save(siswaEntity);
-
+        SiswaEntity response = siswaRepository.save(siswaEntity);
         SiswaResponse siswaResponse = new SiswaResponse();
-        siswaResponse.setName(siswaEntity.getName());
+        siswaResponse.setId(response.getId());
+        siswaResponse.setNis(response.getNis());
+        siswaResponse.setName(response.getName());
 
 
         LOG.info("Successfully save new siswa to the database");
@@ -51,6 +53,7 @@ public class SiswaServiceImpl implements SiswaService {
                 .orElseThrow(() -> new DataNotFoundException("Data Not Found"));
 
         siswaResponse.setId(siswaEntity.getId());
+        siswaResponse.setNis(siswaEntity.getNis());
         siswaResponse.setName(siswaEntity.getName());
 
 
@@ -67,6 +70,7 @@ public class SiswaServiceImpl implements SiswaService {
             SiswaResponse siswaResponse = new SiswaResponse();
 
             siswaResponse.setId(siswa.getId());
+            siswaResponse.setNis(siswa.getNis());
             siswaResponse.setName(siswa.getName());
 
 
@@ -91,7 +95,7 @@ public class SiswaServiceImpl implements SiswaService {
 
     @Override
     public void deleteAll() {
-        LOG.info("Delete all data school news");
+        LOG.info("Delete all data siswa");
         List<SiswaEntity> allSiswaEntity = siswaRepository.findAll();
         allSiswaEntity.forEach(siswa -> {
 
@@ -113,15 +117,15 @@ public class SiswaServiceImpl implements SiswaService {
 
         SiswaResponse siswaResponse = new SiswaResponse();
         siswaResponse.setId(siswaEntity.getId());
+        siswaResponse.setNis(siswaEntity.getNis());
         siswaResponse.setName(siswaEntity.getName());
 
 
-        LOG.info("Successfully update news data siswa to the database");
+        LOG.info("Successfully update data siswa to the database");
 
         return siswaResponse;
 
     }
-
 
 
 }
